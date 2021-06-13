@@ -12,7 +12,7 @@ RUN tar xzf /tmp/s6-overlay-amd64.tar.gz -C / && \
     apt-get remove -y bzip2 && \
     rm -rf /usr/share/man/* /usr/share/groff/* /usr/share/info/* /var/cache/man/* /tmp/* /var/lib/apt/lists/*
 
-EXPOSE 38081 38082
+EXPOSE 28081 28082
 
 ENTRYPOINT ["/init"]
 VOLUME ["/data"]
