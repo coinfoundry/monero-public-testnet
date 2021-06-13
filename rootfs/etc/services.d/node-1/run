@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo "* Starting node 1..."
+/usr/bin/monerod --detach --stagenet --p2p-bind-port 28080 --rpc-bind-port 28081 --data-dir /data --log-level 1 --rpc-bind-ip 0.0.0.0 --confirm-external-bind
+
+s6-svc -d /var/run/s6/services/node-1
