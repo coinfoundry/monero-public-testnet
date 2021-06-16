@@ -1,6 +1,6 @@
 FROM debian:10-slim
 
-RUN apt-get -y update && apt-get -y install curl
+RUN apt-get -y update && apt-get -y install curl libzmq5
 
 ADD https://github.com/just-containers/s6-overlay/releases/download/v1.17.2.0/s6-overlay-amd64.tar.gz \
     https://downloads.getmonero.org/cli/monero-linux-x64-v0.17.2.0.tar.bz2 \
@@ -12,7 +12,7 @@ RUN tar xzf /tmp/s6-overlay-amd64.tar.gz -C / && \
     apt-get remove -y bzip2 && \
     rm -rf /usr/share/man/* /usr/share/groff/* /usr/share/info/* /var/cache/man/* /tmp/* /var/lib/apt/lists/*
 
-EXPOSE 28081 28082
+EXPOSE 28081 28082 38082 38083
 
 ENTRYPOINT ["/init"]
 VOLUME ["/data"]

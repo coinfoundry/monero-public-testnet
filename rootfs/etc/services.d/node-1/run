@@ -1,6 +1,6 @@
 #!/bin/bash
 
 echo "* Starting node 1..."
-/usr/bin/monerod --detach --stagenet --p2p-bind-port 28080 --rpc-bind-port 28081 --data-dir /data --rpc-bind-ip 0.0.0.0 --confirm-external-bind $EXTRA_OPTIONS
+/usr/bin/monerod --detach --stagenet --p2p-bind-port 28080 --rpc-bind-port 28081 --data-dir /data --rpc-bind-ip 0.0.0.0 --confirm-external-bind --zmq-rpc-bind-port 38082 --zmq-rpc-bind-ip 0.0.0.0 --zmq-pub tcp://0.0.0.0:38083 $EXTRA_OPTIONS
 
 s6-svc -d /var/run/s6/services/node-1
